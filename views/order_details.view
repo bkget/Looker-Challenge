@@ -1,0 +1,26 @@
+# If necessary, uncomment the line below to include explore_source.
+# include: "thelook.model.lkml"
+
+view: order_details {
+  derived_table: {
+    explore_source: order_items {
+      column: order_id {}
+      column: id { field: users.id }
+      column: order_count {}
+    }
+  }
+  dimension: order_id {
+    description: ""
+    value_format: "00000"
+    type: number
+  }
+  dimension: id {
+    description: ""
+    type: number
+  }
+  dimension: order_count {
+    label: "Orders Order Count"
+    description: ""
+    type: number
+  }
+}
