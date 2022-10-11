@@ -1,0 +1,203 @@
+- dashboard: products_sale_review
+  title: Products Sale Review
+  layout: newspaper
+  preferred_viewer: dashboards-next
+  description: ''
+  preferred_slug: 6oY6VSTp08SRJpx1HQtLLt
+  elements:
+  - title: Product order status
+    name: Product order status
+    model: getting_started_with_lookml
+    explore: order_items
+    type: looker_grid
+    fields: [products.name, users.count, order_items.status]
+    pivots: [order_items.status]
+    filters:
+      users.city: New York
+      users.country: USA
+    sorts: [order_items.status, users.count desc 0]
+    limit: 500
+    column_limit: 5
+    query_timezone: America/Los_Angeles
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    series_labels: {}
+    series_cell_visualizations:
+      users.count:
+        is_active: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    series_types: {}
+    value_labels: legend
+    label_type: labPer
+    hidden_fields:
+    show_null_points: true
+    interpolation: linear
+    hidden_points_if_no: []
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    listen: {}
+    row: 10
+    col: 0
+    width: 14
+    height: 6
+  - title: Product category monthly revenue
+    name: Product category monthly revenue
+    model: getting_started_with_lookml
+    explore: order_items
+    type: looker_column
+    fields: [products.category, products.category_revenue, order_items.created_month]
+    pivots: [order_items.created_month]
+    fill_fields: [order_items.created_month]
+    filters:
+      order_items.created_month: 3 months
+    sorts: [order_items.created_month, products.category]
+    limit: 10
+    query_timezone: America/Los_Angeles
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    color_application:
+      collection_id: google
+      palette_id: google-categorical-0
+      options:
+        steps: 5
+        reverse: false
+    y_axes: [{label: '', orientation: left, series: [{axisId: products.category_revenue,
+            id: 2022-05 - products.category_revenue, name: 2022-05}, {axisId: products.category_revenue,
+            id: 2022-06 - products.category_revenue, name: 2022-06}, {axisId: products.category_revenue,
+            id: 2022-07 - products.category_revenue, name: 2022-07}, {axisId: products.category_revenue,
+            id: 2022-08 - products.category_revenue, name: 2022-08}, {axisId: products.category_revenue,
+            id: 2022-09 - products.category_revenue, name: 2022-09}, {axisId: products.category_revenue,
+            id: 2022-10 - products.category_revenue, name: 2022-10}], showLabels: true,
+        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    series_colors: {}
+    x_axis_datetime_label: ''
+    show_dropoff: false
+    defaults_version: 1
+    listen: {}
+    row: 3
+    col: 0
+    width: 14
+    height: 7
+  - title: _
+    name: _
+    model: thelook
+    explore: order_items
+    type: single_value
+    fields: [order_items.average_sale_price]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#185ABC"
+    single_value_title: Average Sale Price
+    defaults_version: 1
+    row: 0
+    col: 0
+    width: 7
+    height: 3
+  - title: Untitled
+    name: Untitled
+    model: thelook
+    explore: order_items
+    type: single_value
+    fields: [order_items.average_gross_margin]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#137333"
+    single_value_title: Average Gross Margin
+    defaults_version: 1
+    row: 0
+    col: 7
+    width: 7
+    height: 3
